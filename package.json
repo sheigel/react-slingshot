@@ -23,6 +23,7 @@
   "dependencies": {
     "es6-promise": "3.0.2",
     "express": "4.13.3",
+    "knockout": "3.4.0",
     "react": "0.14.0",
     "react-dom": "0.14.0",
     "react-redux": "4.0.0",
