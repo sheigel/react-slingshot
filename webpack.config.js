@@ -6,17 +6,18 @@ var path = require('path');
 
 var getPlugins = function(env) {
   var plugins = [new webpack.optimize.OccurenceOrderPlugin()];
-
   switch(env) {
     case 'production':
       plugins.push(new webpack.optimize.DedupePlugin());
       plugins.push(new webpack.optimize.UglifyJsPlugin({minimize: true, sourceMap: true}));
+
       break;
     case 'development':
       plugins.push(new webpack.HotModuleReplacementPlugin());
       plugins.push(new webpack.NoErrorsPlugin());
       break;
   }
+
 
   return plugins;
 };

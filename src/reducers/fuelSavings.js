@@ -1,6 +1,7 @@
 import {SAVE_FUEL_SAVINGS, CALCULATE_FUEL_SAVINGS} from '../constants/ActionTypes';
 import calculator from '../businessLogic/fuelSavingsCalculator';
 import dateHelper from '../businessLogic/dateHelper';
+import 'whatwg-fetch'
 
 const initialState = {
     newMpg: null,
@@ -28,6 +29,7 @@ export default function fuelSavingsAppState(state = initialState, action) {
 	switch (action.type) {
 		case SAVE_FUEL_SAVINGS:
 			//in a real app we'd trigger an AJAX call here. For this example, just simulating a save by changing date modified.
+      fetch('localhost').then((res)=>{debugger;console.log(res)}).catch(console.info);
 			return Object.assign({}, state, { dateModified: dateHelper.getFormattedDateTime(new Date()) });
 
 		case CALCULATE_FUEL_SAVINGS:
